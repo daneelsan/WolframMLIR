@@ -6,14 +6,16 @@
 #include "mlir/Pass/Pass.h"
 #include <memory>
 
-namespace mlir {
-namespace wolfram {
+namespace mlir
+{
+    namespace wolfram
+    {
 #define GEN_PASS_DECL
 #include "Wolfram/WolframPasses.h.inc"
 
 #define GEN_PASS_REGISTRATION
 #include "Wolfram/WolframPasses.h.inc"
-} // namespace wolfram
+    } // namespace wolfram
 } // namespace mlir
 
 #endif

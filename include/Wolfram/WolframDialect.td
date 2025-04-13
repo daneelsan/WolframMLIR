@@ -1,7 +1,7 @@
 // build/bin/mlir-tblgen -gen-dialect-decls ~/projects/thesis/wolfram-mlir/tablegen/WolframDialect.td ~/projects/thesis/wolfram-mlir/include/Wolfram/Ops.td -I mlir/include
 
-#ifndef WOLFRAM_DIALECT
-#define WOLFRAM_DIALECT
+#ifndef WOLFRAMDIALECT_TD
+#define WOLFRAMDIALECT_TD
 
 include "mlir/IR/OpBase.td"
 
@@ -10,11 +10,10 @@ include "mlir/IR/OpBase.td"
 //===----------------------------------------------------------------------===//
 
 def Wolfram_Dialect : Dialect {
-  let name = "wolfram"; // Name of the dialect
-  let summary = "A dialect for the Wolfram Language"; // Short description
+  let name = "wolfram";
+  let summary = "A dialect for the Wolfram Language IR";
   let description = [{
-    The Wolfram dialect represents constructs from the Wolfram Language,
-    such as expressions, functions, and symbolic computation.
+    A dialect representing the Wolfram Language's intermediate representation.
   }];
   let cppNamespace = "::mlir::wolfram"; // C++ namespace for the dialect
 
@@ -24,11 +23,4 @@ def Wolfram_Dialect : Dialect {
   }];
 }
 
-//===----------------------------------------------------------------------===//
-// Base wolfram operation definition.
-//===----------------------------------------------------------------------===//
-
-class WolframDialectOp<string mnemonic, list<Trait> traits = []> :
-        Op<Wolfram_Dialect, mnemonic, traits>;
-
-#endif // WOLFRAM_DIALECT
+#endif // WOLFRAMDIALECT_TD
