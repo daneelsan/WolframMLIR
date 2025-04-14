@@ -224,3 +224,15 @@ To achieve Wolfram → LLVM lowering:
 - [ ] Wolfram → LLVM conversion
 - [ ] Full lowering pipeline
 - [ ] Optimization passes
+
+## References
+
+- https://mlir.llvm.org/docs/DefiningDialects/
+    - https://mlir.llvm.org/docs/DefiningDialects/AttributesAndTypes/
+    - https://mlir.llvm.org/docs/DefiningDialects/Operations/
+- https://mlir.llvm.org/docs/Tutorials/CreatingADialect/
+- https://mlir.llvm.org/docs/LangRef/
+- https://llvm.org/devmtg/2020-09/slides/MLIR_Tutorial.pdf
+- https://github.com/llvm/llvm-project/tree/main/mlir/examples/standalone
+- https://www.pure.ed.ac.uk/ws/portalfiles/portal/157150307/A_functional_LUCKE_DOA20052020_AFV.pdf
+- [How to Build your own MLIR Dialect](https://av.tib.eu/media/61396)
