@@ -14,11 +14,17 @@ $ echo $LLVM_SRC_DIR
 /Users/daniels/git/llvm-project
 ```
 
-Clone the project in the 
+Clone the LLVM git project (I chose to put it in `~/git`):
 ```shell
-$ cd git && git clone https://github.com/llvm/llvm-project.git && cd llvm-project
+$ cd ~/git && git clone https://github.com/llvm/llvm-project.git && cd llvm-project
 ```
 
+Create a directory to store the MLIR build:
+```
+$ mkdir build-mlir && cd build-mlir
+```
+
+Configure the build using `cmake` (see https://mlir.llvm.org/getting_started/):
 ```shell
 $ cmake -G Ninja ../llvm \
    -DLLVM_ENABLE_LLD=ON -DMLIR_INCLUDE_INTEGRATION_TESTS=ON \
@@ -31,12 +37,19 @@ $ cmake -G Ninja ../llvm \
 $ cmake --build . --target check-mlir
 ```
 
+`$MLIR_BUILD_DIR` stores the directory where MLIR was build:
+```shell
+$ echo $MLIR_BUILD_DIR
+/Users/daniels/git/llvm-project/build-mlir
+```
+
 ### Build the Wolfram Dialect (Out-of-Tree)
 
+Now that MLIR is built we proceed to build this project:
 ```shell
 $ rm -rf build
 
-$ cmake -S . -B build -DMLIR_DIR=$LLVM_SRC_DIR/build/lib/cmake/mlir -DLLVM_EXTERNAL_LIT=$LLVM_SRC_DIR/build/bin/llvm-lit
+$ cmake -S . -B build -DMLIR_DIR=$MLIR_BUILD_DIR/lib/cmake/mlir -DLLVM_EXTERNAL_LIT=$MLIR_BUILD_DIR/bin/llvm-lit
 
 $ cmake --build build
 ```
