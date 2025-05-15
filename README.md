@@ -103,15 +103,15 @@ $ cmake --build build
 ### TableGen Overview
 
 [TableGen](https://llvm.org/docs/TableGen/) is LLVM's DSL for generating:
-    - Operation definitions
-    - Type definitions
-    - Pass declarations
-    - Documentation
+- Operation definitions
+- Type definitions
+- Pass declarations
+- Documentation
 
 Key concepts:
-    - `def`: Defines a new record (operation, type, etc.)
-    - `let`: Sets properties of a record
-    - `class`: Abstract definition that can be inherited
+- `def`: Defines a new record (operation, type, etc.)
+- `let`: Sets properties of a record
+- `class`: Abstract definition that can be inherited
 
 ### Key Files
 
@@ -160,15 +160,15 @@ $ ./build/bin/wolfram-opt --show-dialects
 Available Dialects: arith,builtin,func,wolfram
 
 # Run specific passes (not working)
-$ wolfram-opt test/Wolfram/dummy.mlir --wolfram-switch-bar-foo
+$ ./build/bin/wolfram-opt test/Wolfram/dummy.mlir --wolfram-switch-bar-foo
 
 # Verify conversion pipeline (TODO)
-$ wolfram-opt test/Wolfram/dummy.mlir --wolfram-to-llvm
+$ ./build/bin/wolfram-opt test/Wolfram/dummy.mlir --wolfram-to-llvm
 ```
 
 #### `WolframPlugin`
 
-**Purpose**: Allows using the Wolfram dialect with standard MLIR tools like mlir-opt
+**Purpose**: Allows using the Wolfram dialect with standard MLIR tools like `mlir-opt`
 
 **Key Features**:
 
@@ -176,7 +176,7 @@ $ wolfram-opt test/Wolfram/dummy.mlir --wolfram-to-llvm
 - Enables testing without recompiling main tools
 - Usage:
     ```shell
-    $ $LLVM_SRC_DIR/build/bin/mlir-opt --load-dialect-plugin=build/lib/WolframPlugin.dylib test/Wolfram/dummy.mlir
+    $ $MLIR_BUILD_DIR/bin/mlir-opt --load-dialect-plugin=build/lib/WolframPlugin.dylib test/Wolfram/dummy.mlir
     [TEST] Loading Wolfram dialect plugin...
     [TEST] Registering Wolfram dialect operations...
     module {
